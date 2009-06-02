@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD eSearchResult, 11 May 2002//EN" "http://www.ncbi.nlm.nih.gov/entrez/query/DTD/eSearch_020511.dtd">
+<eSearchResult><Count>18</Count><RetMax>18</RetMax><RetStart>0</RetStart><IdList>
+		<Id>19129210</Id>
+		<Id>18784790</Id>
+		<Id>18483570</Id>
+		<Id>18445641</Id>
+		<Id>18335319</Id>
+		<Id>17704120</Id>
+		<Id>17597923</Id>
+		<Id>17594421</Id>
+		<Id>16956323</Id>
+		<Id>16701313</Id>
+		<Id>16680511</Id>
+		<Id>19455221</Id>
+		<Id>19455206</Id>
+		<Id>15253354</Id>
+		<Id>15192219</Id>
+		<Id>15063059</Id>
+		<Id>12376687</Id>
+		<Id>11009408</Id>
+	</IdList><TranslationSet><Translation>     <From>biodiversity</From>     <To>"biodiversity"[MeSH Terms] OR "biodiversity"[All Fields]</To>    </Translation><Translation>     <From>informatics</From>     <To>"informatics"[MeSH Terms] OR "informatics"[All Fields]</To>    </Translation></TranslationSet><TranslationStack>   <TermSet>    <Term>"biodiversity"[MeSH Terms]</Term>    <Field>MeSH Terms</Field>    <Count>5512</Count>    <Explode>Y</Explode>   </TermSet>   <TermSet>    <Term>"biodiversity"[All Fields]</Term>    <Field>All Fields</Field>    <Count>9741</Count>    <Explode>Y</Explode>   </TermSet>   <OP>OR</OP>   <OP>GROUP</OP>   <TermSet>    <Term>"informatics"[MeSH Terms]</Term>    <Field>MeSH Terms</Field>    <Count>6441</Count>    <Explode>Y</Explode>   </TermSet>   <TermSet>    <Term>"informatics"[All Fields]</Term>    <Field>All Fields</Field>    <Count>21168</Count>    <Explode>Y</Explode>   </TermSet>   <OP>OR</OP>   <OP>GROUP</OP>   <OP>AND</OP>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>("biodiversity"[MeSH Terms] OR "biodiversity"[All Fields]) AND ("informatics"[MeSH Terms] OR "informatics"[All Fields])</QueryTranslation></eSearchResult>

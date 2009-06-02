@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE eSearchResult PUBLIC "-//NLM//DTD eSearchResult, 11 May 2002//EN" "http://www.ncbi.nlm.nih.gov/entrez/query/DTD/eSearch_020511.dtd">
+<eSearchResult><Count>45</Count><RetMax>45</RetMax><RetStart>0</RetStart><IdList>
+		<Id>19445149</Id>
+		<Id>19260293</Id>
+		<Id>19209761</Id>
+		<Id>19196409</Id>
+		<Id>19170963</Id>
+		<Id>18615626</Id>
+		<Id>18161942</Id>
+		<Id>17450758</Id>
+		<Id>17427256</Id>
+		<Id>17365189</Id>
+		<Id>16904915</Id>
+		<Id>16810764</Id>
+		<Id>16783704</Id>
+		<Id>16753795</Id>
+		<Id>16724846</Id>
+		<Id>16355802</Id>
+		<Id>16308206</Id>
+		<Id>16289147</Id>
+		<Id>16273300</Id>
+		<Id>16042151</Id>
+		<Id>16012772</Id>
+		<Id>15934237</Id>
+		<Id>15787740</Id>
+		<Id>15744101</Id>
+		<Id>15658812</Id>
+		<Id>15461276</Id>
+		<Id>15351108</Id>
+		<Id>15256715</Id>
+		<Id>15224417</Id>
+		<Id>15125577</Id>
+		<Id>15015265</Id>
+		<Id>14510600</Id>
+		<Id>12872400</Id>
+		<Id>12785735</Id>
+		<Id>12774385</Id>
+		<Id>12736462</Id>
+		<Id>12151076</Id>
+		<Id>10536849</Id>
+		<Id>9000883</Id>
+		<Id>7765437</Id>
+		<Id>8427879</Id>
+		<Id>1479025</Id>
+		<Id>1442048</Id>
+		<Id>1758366</Id>
+		<Id>2512948</Id>
+	</IdList><TranslationSet/><TranslationStack>   <TermSet>    <Term>tonkinensis[All Fields]</Term>    <Field>All Fields</Field>    <Count>46</Count>    <Explode>Y</Explode>   </TermSet>   <OP>GROUP</OP>  </TranslationStack><QueryTranslation>tonkinensis[All Fields]</QueryTranslation><ErrorList><PhraseNotFound>Bangana</PhraseNotFound><PhraseNotFound>cranksection</PhraseNotFound></ErrorList></eSearchResult>

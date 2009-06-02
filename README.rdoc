@@ -1,6 +1,48 @@
 = pubmed_search
 
-Description goes here.
+PubmedSearch is PubMed search wrapper. It provides more (obscure) features than BioRuby's.
+
+If all you need is a list of PubMed IDs, then use BioRuby. If you need more information from the eSearchResponse, then check this out.
+
+== Features
+
+In addition to returning the list of PubMed IDs, it will give you more information about your eSearch Response:
+
+* list of Exploded MeSH terms ({More Info about MeSH Term Explosion}[http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=2651214#id443777])
+* list of PhraseNotFound terms
+* the Count field
+
+Additionally, PubmedSearch can automatically fetch more results if the list of PubMed IDs is less than the Count. For instance, PubMed automatically caps your retmax to 100,000. However, a search for "Mus musculus" will return over 950,000 results. In this situation, PubmedSearch will automatically perform the 10 eSearches required to load the entire set of PubMed IDs, and return it to you as a single result set. This functionality is _disabled_ by default, but can be turned on via an option.
+
+== Synopsis
+
+=== Without the +load_all_pmids+ functionality (default)
+
+  results = PubmedSearch.search "Mus musculus"
+  
+  results.pmids.length
+  #=> 100000
+  
+  results.count
+  #=> 951134
+  
+  results.exploded_mesh_terms
+  #=> #<Set: {"mice"}>
+  
+=== With the +load_all_pmids+ functionality
+
+  results = PubmedSearch.search "Mus musculus", :load_all_pmids => true
+  
+  results.pmids.length
+  #=> 951134
+  
+  results.count
+  #=> 951134
+
+== Requirements
+
+* libxml-ruby - sudo gem install libxml-ruby
+* simple_uri_template - sudo gem install rschenk-simple_uri_template
 
 == Copyright
 
