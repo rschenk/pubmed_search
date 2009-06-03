@@ -9,6 +9,8 @@ begin
     gem.email = "rschenk@gmail.com"
     gem.homepage = "http://github.com/rschenk/pubmed_search"
     gem.authors = ["Ryan Schenk"]
+    gem.add_dependency 'rschenk-simple_uri_template'
+    gem.add_dependency 'libxml-ruby'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
