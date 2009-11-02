@@ -16,8 +16,8 @@ FakeWeb.allow_net_connect = false
 
 def fake_esearch_response(search_term, options={})
   file = options[:file] || search_term.downcase.gsub(/\W/, '_')
-  FakeWeb.register_uri("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=100000&retstart=0&term=#{URI.escape search_term}",
-                       :file => File.dirname(__FILE__) + "/responses/#{file}.xml")
+  FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=100000&retstart=0&term=#{URI.escape search_term}",
+                       :body => File.dirname(__FILE__) + "/responses/#{file}.xml")
 end
 
 
