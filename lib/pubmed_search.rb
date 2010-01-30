@@ -2,7 +2,7 @@ require 'set'
 require 'open-uri'
 
 require 'rubygems'
-require 'xml'                   # sudo gem install libxml-ruby
+require 'nokogiri'
 require 'simple_uri_template'   # sudo gem install rschenk-simple_uri_template
 
 
@@ -68,19 +68,19 @@ class PubmedSearch
       wait
       
       esearch_url = @uri_template.expand(options.merge({:term => term}))
-      doc = XML::Document.io( open esearch_url )
+      doc = Nokogiri::XML( open esearch_url )
 
-      results.count = doc.find('/eSearchResult/Count').first.content.to_i
+      results.count = doc.xpath('/eSearchResult/Count').first.content.to_i
       
-      doc.find('/eSearchResult/IdList/Id').each {|n| results.pmids << n.content.to_i}
+      doc.xpath('/eSearchResult/IdList/Id').each {|n| results.pmids << n.content.to_i}
             
-      doc.find('/eSearchResult/TranslationStack/TermSet/Term').each do |n|
+      doc.xpath('/eSearchResult/TranslationStack/TermSet/Term').each do |n|
         if n.content =~ /"(.*)"\[MeSH Terms\]/
           results.exploded_mesh_terms << $1
         end
       end
       
-      doc.find('/eSearchResult/ErrorList/PhraseNotFound').each {|n| results.phrases_not_found << n.content }
+      doc.xpath('/eSearchResult/ErrorList/PhraseNotFound').each {|n| results.phrases_not_found << n.content }
 
       # libxml-ruby has a memory leak.
       # This is a workaround, posted: http://xaop.com/blog/2008/04/01/libxml-ruby-memory-leaks/
