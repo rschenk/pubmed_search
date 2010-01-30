@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pubmed_search}
-  s.version = "0.1.1"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Schenk"]
-  s.date = %q{2009-11-02}
+  s.date = %q{2010-01-30}
   s.email = %q{rschenk@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -50,13 +50,13 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rschenk-simple_uri_template>, [">= 0"])
-      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
+      s.add_runtime_dependency(%q<libxml-ruby>, [">= 0"])
     else
       s.add_dependency(%q<rschenk-simple_uri_template>, [">= 0"])
-      s.add_dependency(%q<nokogiri>, [">= 0"])
+      s.add_dependency(%q<libxml-ruby>, [">= 0"])
     end
   else
     s.add_dependency(%q<rschenk-simple_uri_template>, [">= 0"])
-    s.add_dependency(%q<nokogiri>, [">= 0"])
+    s.add_dependency(%q<libxml-ruby>, [">= 0"])
   end
 end

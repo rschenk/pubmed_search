@@ -82,10 +82,6 @@ class PubmedSearch
       
       doc.xpath('/eSearchResult/ErrorList/PhraseNotFound').each {|n| results.phrases_not_found << n.content }
 
-      # libxml-ruby has a memory leak.
-      # This is a workaround, posted: http://xaop.com/blog/2008/04/01/libxml-ruby-memory-leaks/
-      GC.start
-
       results
     end
   end
