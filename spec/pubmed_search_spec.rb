@@ -44,10 +44,20 @@ describe PubmedSearch do
       FakeWeb.allow_net_connect = false
     end
     
+    it "should allow the user to specify the name of their tool" do
+      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool=ligercat&email=&retmax=100000&retstart=0&term=e%20coli",      :body => File.dirname(__FILE__) + '/responses/e_coli_0.xml')
+      PubmedSearch.search "e coli", :tool => 'ligercat' # note "tool=ligercat" in above URL. Fakeweb will complain and fail spec if necessary
+    end
+    
+    it "should allow the user to specify their email address" do
+      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool=ruby-pubmed_search&email=someone@someplace.edu&retmax=100000&retstart=0&term=e%20coli",      :body => File.dirname(__FILE__) + '/responses/e_coli_0.xml')
+      PubmedSearch.search "e coli", :email => 'someone@someplace.edu' # note "email=someone@someplace.edu" in above URL. Fakeweb will complain and fail spec if necessary
+    end
+    
     it "should allow multiple requests to NLM if Count > Retmax if desired" do
-      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=100000&retstart=0&term=e%20coli",      :body => File.dirname(__FILE__) + '/responses/e_coli_0.xml')
-      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=100000&retstart=100000&term=e%20coli", :body => File.dirname(__FILE__) + '/responses/e_coli_1.xml')
-      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax=100000&retstart=200000&term=e%20coli", :body => File.dirname(__FILE__) + '/responses/e_coli_2.xml')
+      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool=ruby-pubmed_search&email=&retmax=100000&retstart=0&term=e%20coli",      :body => File.dirname(__FILE__) + '/responses/e_coli_0.xml')
+      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool=ruby-pubmed_search&email=&retmax=100000&retstart=100000&term=e%20coli", :body => File.dirname(__FILE__) + '/responses/e_coli_1.xml')
+      FakeWeb.register_uri(:any, "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool=ruby-pubmed_search&email=&retmax=100000&retstart=200000&term=e%20coli", :body => File.dirname(__FILE__) + '/responses/e_coli_2.xml')
             
       result = PubmedSearch.search("e coli", :load_all_pmids => true)
       

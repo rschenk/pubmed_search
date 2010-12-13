@@ -22,9 +22,11 @@ class PubmedSearch
   WAIT_TIME = 1 # seconds
   DEFAULT_OPTIONS = {:retmax => 100000,
                      :retstart => 0,
+                     :tool => 'ruby-pubmed_search',
+                     :email => '',
                      :load_all_pmids => false }
                      
-  @uri_template = SimpleURITemplate.new('http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmax={retmax}&retstart={retstart}&term={term}')
+  @uri_template = SimpleURITemplate.new('http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool={tool}&email={email}&retmax={retmax}&retstart={retstart}&term={term}')
   
   class << self
     # Performs a search to PubMed via eUtils with the given term +String+, and returns a +PubmedSearch+ object modeling the response.
@@ -32,6 +34,8 @@ class PubmedSearch
     # Accepts a +Hash+ of options. Valid options are 
     # * :retmax - Defaults to 100,000 which is the largest retmax that PubMed will honor.
     # * :retstart - Defaults to 0. Set higher if you need to page through results. You shouldn't need to do that manually, because of the +load_all_pmids+ option
+    # * :tool - Defaults to 'ruby-pubmed_search', set to the name of your tool per EUtils parameters specs
+    # * :email - Defaults to '', set to your email address per EUtils parameters specs
     # * :load_all_pmids - Defaults to +false+. If this is set +true+, then search will continue sending eSearches with an increasing retstart until the list of pmids == count. For instance, an eSearch for "Mus musculus" will return ~951134 results, but the highest retmax allowable is 100000. With +load_all_pmids+ set +true+, search will automatically perform 10 eSearches and return the entire list of pmids in one go.
     def search(term, options={})
       options = DEFAULT_OPTIONS.merge(options)
