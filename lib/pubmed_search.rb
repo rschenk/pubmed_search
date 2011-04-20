@@ -3,7 +3,6 @@ require 'open-uri'
 
 require 'rubygems'
 require 'nokogiri'
-require 'simple_uri_template'   # sudo gem install rschenk-simple_uri_template
 
 
 class PubmedSearch
@@ -26,7 +25,7 @@ class PubmedSearch
                      :email => '',
                      :load_all_pmids => false }
                      
-  @uri_template = SimpleURITemplate.new('http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool={tool}&email={email}&retmax={retmax}&retstart={retstart}&term={term}')
+  @uri_template = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool={tool}&email={email}&retmax={retmax}&retstart={retstart}&term={term}'
   
   class << self
     # Performs a search to PubMed via eUtils with the given term +String+, and returns a +PubmedSearch+ object modeling the response.
@@ -71,7 +70,7 @@ class PubmedSearch
     def do_search(results, term, options)
       wait
       
-      esearch_url = @uri_template.expand(options.merge({:term => term}))
+      esearch_url = expand_uri(@uri_template, options.merge({:term => term}))
       doc = Nokogiri::XML( open esearch_url )
 
       results.count = doc.xpath('/eSearchResult/Count').first.content.to_i
@@ -87,6 +86,11 @@ class PubmedSearch
       doc.xpath('/eSearchResult/ErrorList/PhraseNotFound').each {|n| results.phrases_not_found << n.content }
 
       results
+    end
+    
+    # This is a semi-hack to do URI templating. It used to be its own gem, but shit happened.
+    def expand_uri(uri, options)
+      uri.gsub(/\{(.*?)\}/) { URI.encode( (options[$1] || options[$1.to_sym] || '').to_s ) rescue '' }
     end
   end
   
