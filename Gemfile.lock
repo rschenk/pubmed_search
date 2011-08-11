@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    pubmed_search (0.4.0)
+      nokogiri
+      rest-client
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    mime-types (1.16)
+    nokogiri (1.5.0)
+    rest-client (1.6.3)
+      mime-types (>= 1.16)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pubmed_search!

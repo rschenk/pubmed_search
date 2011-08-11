@@ -41,6 +41,8 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
 
+  s.add_dependency "rest-client"
+
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
