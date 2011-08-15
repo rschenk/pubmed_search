@@ -9,7 +9,7 @@ require 'pubmed_search'
 
 
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
   
 end
 
