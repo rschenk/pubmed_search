@@ -25,7 +25,7 @@ class PubmedSearch
                      :email => '',
                      :load_all_pmids => false }
                      
-  @uri_template = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool={tool}&email={email}&retmax={retmax}&retstart={retstart}&term={term}'
+  @uri_template = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&tool={tool}&email={email}&retmax={retmax}&retstart={retstart}&term={term}'
   
   class << self
     # Performs a search to PubMed via eUtils with the given term +String+, and returns a +PubmedSearch+ object modeling the response.
