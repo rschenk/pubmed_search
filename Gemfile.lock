@@ -1,17 +1,33 @@
 PATH
   remote: .
   specs:
-    pubmed_search (0.4.0)
+    pubmed_search (0.4.1)
       nokogiri
       rest-client
 
 GEM
   remote: http://rubygems.org/
   specs:
-    mime-types (1.16)
-    nokogiri (1.5.0)
-    rest-client (1.6.3)
-      mime-types (>= 1.16)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    mime-types (3.3)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2019.1009)
+    mini_portile2 (2.4.0)
+    netrc (0.11.0)
+    nokogiri (1.10.4)
+      mini_portile2 (~> 2.4.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.6)
 
 PLATFORMS
   ruby
