@@ -18,7 +18,7 @@ GEM
     mime-types-data (3.2019.1009)
     mini_portile2 (2.4.0)
     netrc (0.11.0)
-    nokogiri (1.10.4)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
